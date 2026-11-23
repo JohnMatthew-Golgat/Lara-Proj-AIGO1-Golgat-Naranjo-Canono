@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title', 'Kape & Kalinaw | Local Coffee Shop')</title>
+    <style>
+        /* Shared Theme Variables (Available to all pages: home.css, about.css, contact.css) */
+        :root {
+            --bg-color: #faf7f2;
+            --text-color: #2b211a;
+            --nav-bg: #ffffff;
+            --accent-color: #7c4d25;
+            --accent-hover: #5e3819;
+            --card-bg: #ffffff;
+            --border-color: #e5ddd3;
+        }
+
+        body.dark-mode {
+            --bg-color: #171310;
+            --text-color: #f3ece4;
+            --nav-bg: #211b17;
+            --accent-color: #d19460;
+            --accent-hover: #e0a877;
+            --card-bg: #261f1a;
+            --border-color: #3a3029;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Shared Navigation Bar */
+        .site-nav {
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .site-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .site-nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .site-nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .site-nav-links a:hover,
+        .site-nav-links a.active {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .site-theme-btn {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            padding: 0.45rem 0.95rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .site-theme-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Shared Main Container */
+        .site-main {
+            flex: 1;
+        }
+
+        /* Shared Footer */
+        .site-footer {
+            background-color: var(--nav-bg);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 1.5rem 6%;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+    </style>
+    @stack('styles')
+</head>
+<body>
+    <nav class="site-nav">
+        <a href="{{ url('/') }}" class="site-logo">☕ Kape & Kalinaw</a>
+        <ul class="site-nav-links">
+            <li><a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a></li>
+            <li><a href="{{ url('/about') }}" class="{{ request()->is('about') ? 'active' : '' }}">About</a></li>
+            <li><a href="{{ url('/contact') }}" class="{{ request()->is('contact') ? 'active' : '' }}">Contact</a></li>
+            <li>
+                <button id="global-theme-toggle" class="site-theme-btn" type="button">🌙 Dark Mode</button>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="site-main">
+        @yield('content')
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; {{ date('Y') }} <strong>Kape & Kalinaw Coffee Shop</strong>. Locally Roasted & Brewed.</p>
+        <p>Group Members: <strong>Daphnie Thalia Naranjo</strong>, <strong>John Matthew Golgat</strong>, & <strong>Kathleen Grace Canono</strong></p>
+    </footer>
+
+    <!-- Shared Dark/Light Mode Script so the Navbar Toggle works on Home, About, and Contact -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('global-theme-toggle');
+            const body = document.body;
+
+            if (localStorage.getItem('cafeTheme') === 'dark') {
+                body.classList.add('dark-mode');
+                if (themeToggle) themeToggle.textContent = '☀️ Light Mode';
+            }
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    body.classList.toggle('dark-mode');
+                    const isDark = body.classList.contains('dark-mode');
+                    localStorage.setItem('cafeTheme', isDark ? 'dark' : 'light');
+                    themeToggle.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+                });
+            }
+        });
+    </script>
+    @stack('scripts')
+</body>
+</html>
