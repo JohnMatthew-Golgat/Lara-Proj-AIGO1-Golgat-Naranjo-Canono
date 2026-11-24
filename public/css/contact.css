@@ -1,8 +1,11 @@
+
+        /*Contact-main Layout*/
         .contact-main {
             flex: 1;
             display: flex;
         }
 
+        /*left-side layout*/
         .left-side {
             flex: 1;
             background-color:  #5e3819;
@@ -34,7 +37,7 @@
             margin-bottom: 8px;
         }
 
-        /* Right Section */
+        /* right-side layout */
         .right-side {
             flex: 1;
             background-color: var(#fdf3dc);
@@ -103,7 +106,7 @@
             transform: translateY(-2px);
         }
 
-
+        /*Error Message*/
         .error-message {
             color: red;
             font-size: 13px;
@@ -120,7 +123,7 @@
         }
 
 
-        /* Responsive */
+        /* For a responsive design*/
         @media (max-width: 768px) {
             .contact-main {
                 flex-direction: column;
@@ -137,5 +140,5 @@
             .text-row {
                 flex-direction: column;
             }
-        
+
         }
