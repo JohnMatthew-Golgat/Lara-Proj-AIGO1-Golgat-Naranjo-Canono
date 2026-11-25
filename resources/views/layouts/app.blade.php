@@ -10,7 +10,7 @@
 <body>
     <nav class="site-nav">
         <a href="{{ url('/') }}" class="site-logo">
-            <img src="{{ asset('media/KapeLink.png') }}" alt="KapeLink Logo" width="140">
+            <img src="{{ asset('images/KapeLink.png') }}" alt="KapeLink Logo" width="140">
         </a>
         <ul class="site-nav-links">
             <li><a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a></li>
