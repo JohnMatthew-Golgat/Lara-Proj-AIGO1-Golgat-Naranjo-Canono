@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+/* ===== KapeLink color scheme (matches Contact page) ===== */
+:root {
+    --brown:        #9c4a1f;
+    --brown-dark:   #7c3a16;
+    --brown-darker: #5f2d11;
+    --cream:        #f7f2e7;
+    --beige:        #efe6d4;
+    --ink:          #402c1d;
+    --ink-soft:     #6f5638;
+    --white:        #fffdf8;
+}
+
+.about-page {
+    font-family: 'Quicksand', 'Segoe UI', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+}
+
+.about-page * { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ===== Hero split panel ===== */
+.about-hero {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(64, 44, 29, .12);
+    margin-bottom: 40px;
+}
+
+.hero-side {
+    background: var(--brown);
+    color: var(--cream);
+    padding: 60px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-side h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 16px;
+}
+
+.hero-tagline {
+    font-size: .95rem;
+    line-height: 1.6;
+    color: #f3e6d2;
+    margin-bottom: 36px;
+}
+
+/* Stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 16px;
+}
+
+.stat-num {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.stat-label {
+    font-size: .78rem;
+    color: #edd9bf;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+/* Right panel */
+.hero-main {
+    background: var(--beige);
+    padding: 60px 48px;
+}
+
+.hero-main h2,
+.team-section h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--brown-darker);
+    margin-bottom: 18px;
+}
+
+.hero-main p {
+    font-size: .93rem;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+}
+
+/* Read more / read less */
+.more-text {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .45s ease;
+}
+
+.more-text.show { max-height: 400px; }
+
+.btn-read {
+    margin-top: 10px;
+    background: var(--brown);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 11px 26px;
+    font-family: inherit;
+    font-size: .85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+.btn-read:hover { background: var(--brown-dark); }
+
+/* ===== Mission & Vision ===== */
+.mv-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.mv-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 34px 30px;
+    box-shadow: 0 4px 14px rgba(64, 44, 29, .08);
+    transition: transform .2s ease;
+}
+
+.mv-card:hover { transform: translateY(-4px); }
+
+.mv-icon { font-size: 1.8rem; }
+
+.mv-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--brown);
+    margin: 10px 0 12px;
+}
+
+.mv-card p {
+    font-size: .9rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+}
+
+/* ===== Team ===== */
+.team-section { text-align: center; }
+
+.team-sub {
+    font-size: .9rem;
+    color: var(--ink-soft);
+    margin-bottom: 30px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: center;
+}
+
+.team-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 34px 24px;
+    box-shadow: 0 4px 14px rgba(64, 44, 29, .08);
+    transition: transform .2s ease;
+}
+
+.team-card:hover { transform: translateY(-4px); }
+
+.avatar {
+    width: 74px;
+    height: 74px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: var(--brown);
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-card h4 { font-size: 1rem; color: var(--ink); }
+
+.role {
+    display: block;
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--brown);
+    margin: 5px 0 12px;
+}
+
+.team-card p {
+    font-size: .84rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+    .about-hero { grid-template-columns: 1fr; }
+    .team-grid  { grid-template-columns: 1fr; }
+    .mv-section { grid-template-columns: 1fr; }
+    .hero-side, .hero-main { padding: 40px 28px; }
+}
