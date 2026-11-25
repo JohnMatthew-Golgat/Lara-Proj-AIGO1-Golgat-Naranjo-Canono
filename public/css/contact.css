@@ -1,0 +1,144 @@
+
+        /*Contact-main Layout*/
+        .contact-main {
+            flex: 1;
+            display: flex;
+        }
+
+        /*left-side layout*/
+        .left-side {
+            flex: 1;
+            background-color:  #5e3819;
+            color: #fdf3dc;
+            padding: 60px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .left-side h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .left-side > p {
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .contactInfo,
+        .info-item {
+            margin-bottom: 25px;
+        }
+
+        .left-side h3 {
+            color: #e4b989;
+            margin-bottom: 8px;
+        }
+
+        /* right-side layout */
+        .right-side {
+            flex: 1;
+            background-color: var(#fdf3dc);
+            color: var(#2b211a);
+            padding: 60px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: background-color 0.3s ease,
+                color 0.3s ease;
+        }
+
+        .right-side h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(#7c4d25);
+        }
+
+        .right-side form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .right-side label {
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .right-side input,
+        .right-side textarea {
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font: inherit;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+
+            transition: background-color 0.3s ease,
+                        color 0.3s ease,
+                        border-color 0.3s ease;
+                }
+
+        .right-side input::placeholder,
+        .right-side textarea::placeholder {
+            color: var(--text-color);
+            opacity: 0.6;
+        }
+
+        .right-side button {
+            padding: 14px;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+
+            transition: background-color 0.3s ease,
+                        transform 0.2s ease;
+        }
+
+        .right-side button:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /*Error Message*/
+        .error-message {
+            color: red;
+            font-size: 13px;
+            margin-top: -5px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        #successMessage {
+            color: green;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+
+        /* For a responsive design*/
+        @media (max-width: 768px) {
+            .contact-main {
+                flex-direction: column;
+            }
+
+            .left-side,
+            .right-side {
+                width: 100%;
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .text-row {
+                flex-direction: column;
+            }
+
+        }
